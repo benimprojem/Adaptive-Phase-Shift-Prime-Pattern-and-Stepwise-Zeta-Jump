@@ -12,12 +12,12 @@ Bu model, asalların sayı doğrusundaki seyrelmesini **$K=1.12$** "Fit Katsayı
 
 Sistem, 9 elemanlı döngüsel bir set üzerinden ilerler ve basamak büyüklüğüne ($d$) göre sıçrama mesafesini ($Jump$) dinamik olarak ayarlar:
 
-*   Çekirdek Patern ($P$):  `[6, 4, 2, 4, 2, 4, 6, 2, 4]`
+  Çekirdek Patern ($P$):  `[6, 4, 2, 4, 2, 4, 6, 2, 4]`
 
-*   Esneme Faktörü ($S$):
+  Esneme Faktörü ($S$):
 $d > 2$ ise; $S = \lfloor((d - 2) \times 2) \times 1.12\rfloor$
    
-*   Sıçrama Kararı:
+  Sıçrama Kararı:
 $$Jump = \begin{cases} P_i + S, & P_i \ge 4 \\ P_i, & P_i < 4 \end{cases}$$
 
 ### 2. Sanal Başarı Doğrulaması (Manevra)
@@ -36,12 +36,12 @@ Instead of using Riemann Zeta zeros, this model is a faster, ultra-dynamic scann
 
 The system progresses through a 9-element cyclic set and dynamically adjusts the jump distance ($Jump$) based on the digit magnitude ($d$):
 
-*   Core Pattern ($P$): `[6, 4, 2, 4, 2, 4, 6, 2, 4]`
+  Core Pattern ($P$): `[6, 4, 2, 4, 2, 4, 6, 2, 4]`
     
-*   Stretch Factor ($S$):
+  Stretch Factor ($S$):
 If $d > 2$; $S = \lfloor((d - 2) \times 2) \times 1.12\rfloor$
     
-*   Jump Decision:
+  Jump Decision:
 $$Jump = \begin{cases} P_i + S, & P_i \ge 4 \\ P_i, & P_i < 4 \end{cases}$$
 
 ### 2. Virtual Success Verification (Maneuver)
