@@ -127,11 +127,10 @@ if __name__ == "__main__":
 ```
 
 
-
+----
 
 # Model 2: Kademeli Çift-Zeta (Stepwise Zeta Jump) 
 
----
 
 ## [TR] Kademeli Çift-Zeta Sıçrama Modeli (Stepwise Zeta Jump Model)
 
@@ -261,4 +260,49 @@ if __name__ == "__main__":
         if val.lower() == 'q': break
         run_stepwise_zeta_final(int(val))
 ```
+
+
+---
+
+### Kademeli Çift-Zeta Modeli: Performans ve Veri Analizi
+
+Bu veriler, her çift basamakta ($4, 6, 8 \dots$) frekans hassasiyetini artıran "Stepwise" yaklaşımının sonuçlarını içermektedir. Özellikle 7. basamaktaki düşüş, modelin sayı doğrusundaki "Prime Gap" (Asal Boşluğu) genişlemesine verdiği tepkiyi temsil eder.
+
+| Basamak ($10^x$) | Frekans Sayısı | Adım Sayısı | Bulunan Aday | Başarı (%) | Gerçek Asal ($\pi(x)$) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **1** | 3 | 1 | 1 | %100.00 | 4 |
+| **2** | 3 | 24 | 24 | %100.00 | 25 |
+| **3** | 3 | 177 | 175 | %98.87 | 168 |
+| **4** | **5 (+2)** | 1,397 | 1,337 | %95.71 | 1,229 |
+| **5** | 5 | 11,570 | 10,813 | %93.46 | 9,592 |
+| **6** | **7 (+2)** | 98,782 | 90,501 | %91.62 | 78,498 |
+| **7** | 7 | **810,000** | **325,998** | **%40.25*** | **664,579** |
+
+---
+
+### Veri Yorumlama ve Teknik Notlar
+
+1.  **7. Basamak Paradoksu:** Model 7. basamakta %40.25 seviyesine sert bir düşüş yaşamaktadır. Bu durum, mevcut Zeta frekanslarının (7 frekans) ve esneme katsayısının, 1 milyon ile 10 milyon arasındaki asal dağılım kaosuyla rezonansa girmekte zorlandığını göstermektedir.
+2.  **Kademeli Vites Artışı:** Tablodaki "Freq #" sütunu, sistemin dinamik olarak çift basamaklarda vites yükselttiğini gösterir. 4. ve 6. basamaklarda yapılan $+2$ frekans eklemeleri, bir sonraki basamağın başarısını stabilize etmeyi amaçlar.
+3.  **Manevra Limitleri:** 7. basamaktaki düşüş, "Sanal Doğrulama" menzilinin ($\pm d \times 2$) bu bölgedeki geniş asal boşluklarını kapatmakta yetersiz kaldığına işaret etmektedir.
+
+---
+
+### [EN] Stepwise Zeta Jump Model: Performance Data
+
+This table reflects the results of the "Stepwise" approach, which increases frequency sensitivity at every even digit ($4, 6, 8 \dots$). The drop at the 7th digit represents the model's reaction to the widening "Prime Gap" on the number line.
+
+| Digit ($10^x$) | Frequency # | Total Steps | Found Candidates | Success (%) | Real Primes ($\pi(x)$) |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **3** | 3 | 177 | 175 | 98.87% | 168 |
+| **4** | **5 (+2)** | 1,397 | 1,337 | 95.71% | 1,229 |
+| **5** | 5 | 11,570 | 10,813 | 93.46% | 9,592 |
+| **6** | **7 (+2)** | 98,782 | 90,501 | 91.62% | 78,498 |
+| **7** | 7 | **810,000** | **325,998** | **40.25%*** | **664,579** |
+
+---
+
+**Note to Contributors:** The 40.25% accuracy at the 7th digit is a known barrier. Future updates should focus on increasing the Zeta Zero pool or dynamically adjusting the $K_{fit}$ coefficient specifically for the $10^6 - 10^7$ range.
+
+
 
